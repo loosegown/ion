@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egypt Outsourcing Events & Agenda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #0e4d92;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            background: #e2e8f0;
+            border: none;
+            border-radius: 30px;
+            margin: 0 10px 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #cbd5e1;
+        }
+        
+        .tab.active {
+            background: #0e4d92;
+            color: white;
+        }
+        
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(14, 77, 146, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(14, 77, 146, 0.2);
+        }
+        
+        .event-date {
+            background: linear-gradient(135deg, #0e4d92 0%, #0b132b 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .event-month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .event-day {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .event-weekday {
+            font-size: 1rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .event-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .event-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0e4d92;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .event-description {
+            color: #475569;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .event-detail {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+        
+        .event-detail i {
+            margin-right: 8px;
+            color: #e7b10a;
+        }
+        
+        .event-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: #0e4d92;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background: #0a3a6e;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #0e4d92;
+            color: #0e4d92;
+        }
+        
+        .btn-outline:hover {
+            background: #f0f7ff;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .calendar-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 5px 20px rgba(14, 77, 146, 0.15);
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .calendar-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0e4d92;
+        }
+        
+        .calendar-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+        
+        .calendar-weekday {
+            text-align: center;
+            font-weight: 600;
+            color: #475569;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .calendar-day {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        .calendar-day.empty {
+            background: transparent;
+        }
+        
+        .calendar-day.event {
+            background: #f0f7ff;
+            color: #0e4d92;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .calendar-day.event:hover {
+            background: #e0efff;
+        }
+        
+        .calendar-day.event::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            width: 6px;
+            height: 6px;
+            background: #e7b10a;
+            border-radius: 50%;
+        }
+        
+        .calendar-day.today {
+            background: #0e4d92;
+            color: white;
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, #0e4d92 0%, #0b132b 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 12px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .newsletter-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-text {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 6px 0 0 6px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            padding: 0 25px;
+            background: #e7b10a;
+            color: #0b132b;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background: #d4a309;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .events-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 6px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 6px;
+                padding: 15px;
+            }
+            
+            .calendar-grid {
+                gap: 4px;
+            }
+            
+            .calendar-weekday, .calendar-day {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Egypt Outsourcing Events & Industry Agenda</h2>
+            <p class="section-subtitle">Discover upcoming conferences, summits, and networking events in Egypt's thriving outsourcing ecosystem</p>
+        </div>
+        
+        <div class="tabs-container">
+            <button class="tab active">All Events</button>
+            <button class="tab">Conferences</button>
+            <button class="tab">Employment Fairs</button>
+            <button class="tab">Ceremonies</button>
+            <button class="tab">International</button>
+        </div>
+        
+        <div class="events-container">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-month">September</div>
+                    <div class="event-day">7</div>
+                    <div class="event-weekday">Saturday</div>
+                </div>
+                <div class="event-content">
+                    <h3 class="event-title">Summer Intern Ceremony</h3>
+                    <p class="event-description">Top 50 interns invited by ITIDA for workshop sessions and visits to GBS companies in Egypt.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cairo, Egypt</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>9:00 AM - 4:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a href="#" class="btn"><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
+                        <a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i> Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-month">September</div>
+                    <div class="event-day">9</div>
+                    <div class="event-weekday">Monday</div>
+                </div>
+                <div class="event-content">
+                    <h3 class="event-title">AI Everything Expo</h3>
+                    <p class="event-description">Promotional event with local media showcasing Egypt's advancements in artificial intelligence.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Smart Village, Cairo</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>10:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a href="#" class="btn"><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
+                        <a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i> Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 3 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-month">September</div>
+                    <div class="event-day">17</div>
+                    <div class="event-weekday">Tuesday</div>
+                </div>
+                <div class="event-content">
+                    <h3 class="event-title">ITIDA Employment Fair - Beni Suef</h3>
+                    <p class="event-description">Connect with top talent in Beni Suef governorate. Recruitment opportunities for IT and outsourcing companies.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Beni Suef University</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>9:00 AM - 5:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a href="#" class="btn"><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
+                        <a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i> Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 4 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-month">September</div>
+                    <div class="event-day">27</div>
+                    <div class="event-weekday">Friday</div>
+                </div>
+                <div class="event-content">
+                    <h3 class="event-title">DevOpsDays Cairo 2025</h3>
+                    <p class="event-description">8th annual conference organized by ITIDA/SECC in cooperation with industry leaders including ATOS, Vodafone, and Orange.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cairo Convention Center</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>All Day Event</span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a href="#" class="btn"><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
+                        <a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i> Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 5 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-month">September</div>
+                    <div class="event-day">29</div>
+                    <div class="event-weekday">Sunday</div>
+                </div>
+                <div class="event-content">
+                    <h3 class="event-title">Techne Summit</h3>
+                    <p class="event-description">Held in Alexandria and Cairo with ministerial speech and ambassador attendance. Features Meta Workshop and investment-focused sessions.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Alexandria & Cairo</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Two-Day Event</span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a href="#" class="btn"><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
+                        <a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i> Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 6 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-month">October</div>
+                    <div class="event-day">13</div>
+                    <div class="event-weekday">Monday</div>
+                </div>
+                <div class="event-content">
+                    <h3 class="event-title">GITEX Global 2025</h3>
+                    <p class="event-description">Middle East's largest technology exhibition. ITIDA participation to showcase Egypt's tech capabilities.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dubai World Trade Centre</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Five-Day Event</span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a href="#" class="btn"><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
+                        <a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i> Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="calendar-section">
+            <div class="calendar-header">
+                <h3 class="calendar-title">September 2025</h3>
+                <div class="calendar-actions">
+                    <button class="btn btn-outline"><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn btn-outline">Today</button>
+                    <button class="btn btn-outline"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="calendar-grid">
+                <div class="calendar-weekday">Sun</div>
+                <div class="calendar-weekday">Mon</div>
+                <div class="calendar-weekday">Tue</div>
+                <div class="calendar-weekday">Wed</div>
+                <div class="calendar-weekday">Thu</div>
+                <div class="calendar-weekday">Fri</div>
+                <div class="calendar-weekday">Sat</div>
+                
+                <!-- Empty days -->
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day empty"></div>
+                
+                <!-- September 1-5 -->
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                <div class="calendar-day">5</div>
+                
+                <!-- September 6-12 -->
+                <div class="calendar-day">6</div>
+                <div class="calendar-day event">7</div>
+                <div class="calendar-day">8</div>
+                <div class="calendar-day event">9</div>
+                <div class="calendar-day">10</div>
+                <div class="calendar-day">11</div>
+                <div class="calendar-day">12</div>
+                
+                <!-- September 13-19 -->
+                <div class="calendar-day">13</div>
+                <div class="calendar-day">14</div>
+                <div class="calendar-day">15</div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day event">17</div>
+                <div class="calendar-day">18</div>
+                <div class="calendar-day">19</div>
+                
+                <!-- September 20-26 -->
+                <div class="calendar-day">20</div>
+                <div class="calendar-day">21</div>
+                <div class="calendar-day">22</div>
+                <div class="calendar-day">23</div>
+                <div class="calendar-day">24</div>
+                <div class="calendar-day">25</div>
+                <div class="calendar-day">26</div>
+                
+                <!-- September 27-30 -->
+                <div class="calendar-day event">27</div>
+                <div class="calendar-day">28</div>
+                <div class="calendar-day event">29</div>
+                <div class="calendar-day event">30</div>
+            </div>
+        </div>
+        
+        <div class="newsletter-section">
+            <h3 class="newsletter-title">Stay Updated on Egypt's Outsourcing Events</h3>
+            <p class="newsletter-text">Subscribe to our newsletter for the latest updates on conferences, employment fairs, and industry events in Egypt's growing outsourcing sector.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address">
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+        
+        // Calendar navigation (simplified)
+        const calendarTitle = document.querySelector('.calendar-title');
+        const prevBtn = document.querySelector('.calendar-actions .fa-chevron-left').closest('button');
+        const nextBtn = document.querySelector('.calendar-actions .fa-chevron-right').closest('button');
+        
+        let currentMonth = 8; // September (0-indexed)
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
+        prevBtn.addEventListener('click', () => {
+            currentMonth = (currentMonth - 1 + 12) % 12;
+            calendarTitle.textContent = `${monthNames[currentMonth]} 2025`;
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentMonth = (currentMonth + 1) % 12;
+            calendarTitle.textContent = `${monthNames[currentMonth]} 2025`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egypt's Global Recognition</title>
+    <style>
+        .recognition-section {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .recognition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .recognition-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .recognition-card:hover {
+            transform: translateY(-5px);
+        }
+        .recognition-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .recognition-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .recognition-title {
+            font-size: 1.25rem;
+            margin: 0;
+            color: #0E4D92;
+        }
+        .recognition-rank {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #E7B10A;
+            margin: 10px 0;
+        }
+        .recognition-details {
+            color: #6B7280;
+            margin-bottom: 15px;
+        }
+        .recognition-year {
+            font-size: 0.9rem;
+            color: #9CA3AF;
+        }
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        .progress-up {
+            color: #10B981;
+            margin-right: 5px;
+        }
+        .progress-down {
+            color: #EF4444;
+            margin-right: 5px;
+        }
+        .comparison-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .chart-bar {
+            height: 30px;
+            background: linear-gradient(90deg, #0E4D92, #E7B10A);
+            margin-bottom: 15px;
+            border-radius: 5px;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: 500;
+        }
+        .download-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn-download {
+            display: inline-block;
+            background: #0E4D92;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn-download:hover {
+            background: #0a3a6e;
+        }
+    </style>
+</head>
+<body>
+    <section class="recognition-section">
+        <div class="section-header">
+            <h2>Egypt's Global Recognition</h2>
+            <p>International organizations consistently rank Egypt as a top destination for outsourcing and technology services</p>
+        </div>
+
+        <div class="recognition-grid">
+            <!-- AT Kearney -->
+            <div class="recognition-card">
+                <div class="recognition-header">
+                    <div class="recognition-logo">AT</div>
+                    <h3 class="recognition-title">AT Kearney</h3>
+                </div>
+                <div class="recognition-rank">#23 Global / #1 Africa</div>
+                <p class="recognition-details">Global Services Location Index</p>
+                <div class="progress-indicator">
+                    <span class="progress-up">↑</span> From #28 in 2021
+                </div>
+                <p class="recognition-year">2023</p>
+            </div>
+
+            <!-- Gartner -->
+            <div class="recognition-card">
+                <div class="recognition-header">
+                    <div class="recognition-logo">G</div>
+                    <h3 class="recognition-title">Gartner</h3>
+                </div>
+                <div class="recognition-rank">Primary EMEA Location</div>
+                <p class="recognition-details">For Global Delivery of IT & BPO</p>
+                <div class="progress-indicator">
+                    <span class="progress-up">↑</span> Consistently ranked since 2019
+                </div>
+                <p class="recognition-year">2019-Present</p>
+            </div>
+
+            <!-- Ryan Strategic Advisory -->
+            <div class="recognition-card">
+                <div class="recognition-header">
+                    <div class="recognition-logo">RSA</div>
+                    <h3 class="recognition-title">Ryan Strategic Advisory</h3>
+                </div>
+                <div class="recognition-rank">3rd Globally</div>
+                <p class="recognition-details">Offshore BPO Confidence Index</p>
+                <div class="progress-indicator">
+                    <span class="progress-up">↑</span> From 5th in 2022
+                </div>
+                <p class="recognition-year">2023</p>
+            </div>
+
+            <!-- GBS World -->
+            <div class="recognition-card">
+                <div class="recognition-header">
+                    <div class="recognition-logo">GBS</div>
+                    <h3 class="recognition-title">GBS World</h3>
+                </div>
+                <div class="recognition-rank">#2 Technical Support</div>
+                <p class="recognition-details">Global Ranking for Technical & Helpdesk Support</p>
+                <div class="recognition-rank" style="margin-top: 15px;">#5 IT Outsourcing</div>
+                <p class="recognition-details">Global Ranking for General IT Outsourcing</p>
+                <p class="recognition-year">2023</p>
+            </div>
+
+            <!-- IMF -->
+            <div class="recognition-card">
+                <div class="recognition-header">
+                    <div class="recognition-logo">IMF</div>
+                    <h3 class="recognition-title">International Monetary Fund</h3>
+                </div>
+                <div class="recognition-rank">+42 Positions</div>
+                <p class="recognition-details">GovTech Maturity Index - High Category (A)</p>
+                <div class="progress-indicator">
+                    <span class="progress-up">↑</span> Most improved globally
+                </div>
+                <p class="recognition-year">2022</p>
+            </div>
+
+            <!-- OOKLA -->
+            <div class="recognition-card">
+                <div class="recognition-header">
+                    <div class="recognition-logo">OOKLA</div>
+                    <h3 class="recognition-title">OOKLA SpeedTest</h3>
+                </div>
+                <div class="recognition-rank">#1 in Africa</div>
+                <p class="recognition-details">Fixed Broadband Internet Speed</p>
+                <div class="progress-indicator">
+                    <span class="progress-up">↑</span> 45% faster than regional average
+                </div>
+                <p class="recognition-year">2022</p>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h3>Egypt's African Leadership in Outsourcing</h3>
+            <div class="chart-bar" style="width: 100%">
+                <span>Egypt (#1) - 100 points</span>
+            </div>
+            <div class="chart-bar" style="width: 85%">
+                <span>Morocco (#2) - 85 points</span>
+            </div>
+            <div class="chart-bar" style="width: 78%">
+                <span>South Africa (#3) - 78 points</span>
+            </div>
+            <div class="chart-bar" style="width: 72%">
+                <span>Kenya (#4) - 72 points</span>
+            </div>
+            <div class="chart-bar" style="width: 68%">
+                <span>Ghana (#5) - 68 points</span>
+            </div>
+            <p style="text-align: center; margin-top: 15px; color: #6B7280; font-size: 0.9rem;">
+                Based on AT Kearney Global Services Location Index 2023
+            </p>
+        </div>
+
+        <div class="download-section">
+            <p>Download our complete Global Recognition Package for your business case</p>
+            <a href="#" class="btn-download">Download Recognition Dossier (PDF)</a>
+        </div>
+    </section>
+</body>
+</html>

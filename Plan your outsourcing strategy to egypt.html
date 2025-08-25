@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Egypt Strategy | ION Egypt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #0e4d92;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .strategy-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .benefits-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(14, 77, 146, 0.15);
+        }
+        
+        .benefits-title {
+            font-size: 1.8rem;
+            color: #0e4d92;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .benefit-icon {
+            background: #f0f7ff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .benefit-icon i {
+            color: #0e4d92;
+            font-size: 1.2rem;
+        }
+        
+        .benefit-content h3 {
+            font-size: 1.2rem;
+            color: #0e4d92;
+            margin-bottom: 8px;
+        }
+        
+        .benefit-content p {
+            color: #475569;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .stat-box {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0e4d92;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+        
+        .form-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(14, 77, 146, 0.15);
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            color: #0e4d92;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .form-description {
+            color: #475569;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #0e4d92;
+            box-shadow: 0 0 0 3px rgba(14, 77, 146, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .form-checkbox input {
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        .form-checkbox label {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+        
+        .form-checkbox a {
+            color: #0e4d92;
+            text-decoration: none;
+        }
+        
+        .form-checkbox a:hover {
+            text-decoration: underline;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #0e4d92;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #0a3a6e;
+        }
+        
+        .success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .timeline-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 5px 20px rgba(14, 77, 146, 0.15);
+        }
+        
+        .timeline-title {
+            font-size: 1.8rem;
+            color: #0e4d92;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+        
+        .timeline-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: #0e4d92;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.1rem;
+            color: #0e4d92;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-content p {
+            color: #475569;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 968px) {
+            .strategy-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .timeline-step {
+                margin-bottom: 30px;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Plan Your Egypt Outsourcing Strategy</h2>
+            <p class="section-subtitle">Leverage Egypt's unique advantages with tailored support from ITIDA for establishing your global capability center</p>
+        </div>
+        
+        <div class="strategy-container">
+            <div class="benefits-section">
+                <h2 class="benefits-title">Why Choose Egypt for Your Outsourcing Needs?</h2>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Deep Talent Pool</h3>
+                        <p>Access 762,000+ annual graduates with 55,000+ specialized in ICT fields. 30% STEM graduates with multilingual capabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Significant Cost Advantage</h3>
+                        <p>Achieve 60-70% cost savings on key roles compared to Western markets while maintaining quality standards.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Strategic Location</h3>
+                        <p>Operate in the EET time zone enabling "follow-the-sun" delivery with seamless collaboration for European and partial US overlap.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Government Support</h3>
+                        <p>ITIDA provides end-to-end support from setup to aftercare, including the "Train to Hire" program that co-funds specialized training.</p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">Cost Savings</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">55K+</div>
+                        <div class="stat-label">ICT Graduates/Year</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">74</div>
+                        <div class="stat-label">Signed MOUs</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">60K+</div>
+                        <div class="stat-label">Jobs Created</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="form-title">Request Your Custom Egypt Strategy</h2>
+                <p class="form-description">Get a tailored location & cost-to-serve model + talent pipeline plan in 5 business days.</p>
+                
+                <form id="strategyForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-input" required placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Work Email *</label>
+                        <input type="email" class="form-input" required placeholder="your.email@company.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Company *</label>
+                        <input type="text" class="form-input" required placeholder="Your company name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Job Title</label>
+                        <input type="text" class="form-input" placeholder="Your position">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Country</label>
+                        <select class="form-select">
+                            <option>Select your country</option>
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                            <option>Germany</option>
+                            <option>France</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Area of Interest *</label>
+                        <select class="form-select" required>
+                            <option value="">Select your focus area</option>
+                            <option>ITS (IT Services)</option>
+                            <option>BPS (Business Process Services)</option>
+                            <option>ER&D (Engineering R&D)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">What do you want to build in Egypt? *</label>
+                        <textarea class="form-textarea" required placeholder="e.g., 150-seat multilingual CX center, 40-engineer embedded systems team, cloud CoE..."></textarea>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent">I agree to the <a href="#">privacy policy</a> and consent to ITIDA contacting me about my inquiry.</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Request My Custom Plan</button>
+                    
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i> Thank you for your request! We'll contact you within 24 hours.
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="timeline-section">
+            <h2 class="timeline-title">Your Egypt Setup Process</h2>
+            
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Initial Consultation</h3>
+                        <p>We discuss your needs and outline a tailored Egypt strategy</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Custom Analysis</h3>
+                        <p>We prepare a detailed cost model and talent availability report</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Site Selection</h3>
+                        <p>We recommend optimal locations based on your needs</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Implementation</h3>
+                        <p>We support you through setup and operationalization</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; color: #475569; margin-top: 20px;">
+                ITIDA provides end-to-end support throughout your Egypt establishment process, from initial planning to ongoing operations.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('strategyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For this example, we'll just show a success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form after submission
+            setTimeout(function() {
+                document.getElementById('strategyForm').reset();
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
